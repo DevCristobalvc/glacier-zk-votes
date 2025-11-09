@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Glacier Design System - Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    /* Avalanche Red - Primary Brand Color */
+    --primary: 0 79% 57%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 85% 65%;
+    
+    /* Card and elevated surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    /* Secondary (Subtle backgrounds) */
+    --secondary: 210 20% 97%;
+    --secondary-foreground: 222 47% 11%;
+    
+    /* Muted states */
+    --muted: 210 20% 97%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Accent */
+    --accent: 210 20% 97%;
+    --accent-foreground: 222 47% 11%;
+    
+    /* Destructive */
+    --destructive: 0 79% 57%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 0 79% 57%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom Glacier tokens */
+    --glacier-ice: 210 20% 98%;
+    --glacier-carbon: 222 47% 11%;
+    --glacier-slate: 215 16% 47%;
+    --glacier-mist: 215 20% 65%;
+    --glacier-line: 214 32% 91%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 79% 57%), hsl(0 85% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    --gradient-mesh: radial-gradient(circle at 20% 50%, hsla(0 79% 57% / 0.1) 0%, transparent 50%),
+                     radial-gradient(circle at 80% 80%, hsla(0 79% 57% / 0.08) 0%, transparent 50%);
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    
+    --primary: 0 79% 57%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 85% 65%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 79% 57%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 0 79% 57%;
+    
+    --glacier-ice: 217 33% 15%;
+    --glacier-carbon: 210 40% 98%;
+    --glacier-slate: 215 20% 65%;
+    --glacier-mist: 215 16% 47%;
+    --glacier-line: 217 33% 18%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 79% 57%), hsl(0 85% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 11%), hsl(217 33% 18%));
+    --gradient-mesh: radial-gradient(circle at 20% 50%, hsla(0 79% 57% / 0.15) 0%, transparent 50%),
+                     radial-gradient(circle at 80% 80%, hsla(0 79% 57% / 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsla(0 79% 57% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px hsla(0 79% 57% / 0.5);
+  }
+}
+
+/* Gradient background utilities */
+.gradient-mesh {
+  background: var(--gradient-mesh);
+}
+
+.gradient-hero {
+  background: var(--gradient-hero);
+}
+
+/* Focus visible styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

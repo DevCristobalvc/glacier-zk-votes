@@ -1,0 +1,24 @@
+{
+  "name": "glacier-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for Glacier - Anonymous voting system",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test -vvv",
+    "test:gas": "forge test --gas-report",
+    "deploy:local": "forge script script/Deploy.s.sol:DeployScript --rpc-url http://localhost:8545 --broadcast",
+    "deploy:fuji": "forge script script/Deploy.s.sol:DeployScript --rpc-url $AVALANCHE_FUJI_RPC_URL --broadcast --verify",
+    "clean": "forge clean",
+    "setup": "forge install",
+    "verify": "forge verify-contract"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  },
+  "keywords": [
+    "solidity",
+    "foundry",
+    "avalanche",
+    "zero-knowledge"
+  ]
+}

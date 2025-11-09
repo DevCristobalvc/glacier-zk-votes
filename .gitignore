@@ -1,0 +1,79 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+.npm
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Foundry
+cache/
+broadcast/
+lib/
+
+# ZK Circuits
+zk-circuits/build/
+zk-circuits/ptau/
+*.r1cs
+*.wasm
+*.zkey
+*.vkey
+*.wtns
+
+# Contract artifacts
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Frontend
+glacier-vote/dist/
+glacier-vote/build/
+glacier-vote/.vite/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Coverage
+coverage/
+*.lcov
+
+# Testing
+.nyc_output
+
+# Local development
+.local/

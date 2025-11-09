@@ -1,0 +1,50 @@
+{
+  "name": "glacier-monorepo",
+  "version": "1.0.0",
+  "description": "Glacier - Anonymous Voting System on Avalanche",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "frontend",
+    "contracts",
+    "zk-circuits",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=frontend",
+    "build": "npm run build:contracts && npm run build:circuits && npm run build:frontend",
+    "build:contracts": "npm run build --workspace=contracts",
+    "build:circuits": "npm run build --workspace=zk-circuits",
+    "build:frontend": "npm run build --workspace=frontend",
+    "test": "npm run test:contracts",
+    "test:contracts": "npm run test --workspace=contracts",
+    "deploy:local": "npm run deploy:local --workspace=contracts",
+    "deploy:fuji": "npm run deploy:fuji --workspace=contracts",
+    "circuits:compile": "npm run compile --workspace=zk-circuits",
+    "circuits:setup": "npm run setup --workspace=zk-circuits",
+    "circuits:prove": "npm run prove --workspace=zk-circuits",
+    "clean": "npm run clean --workspace=contracts && npm run clean --workspace=zk-circuits",
+    "setup": "npm install && npm run setup --workspace=contracts && npm run setup --workspace=zk-circuits"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Glacier",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glacier-zk-votes/glacier.git"
+  },
+  "keywords": [
+    "avalanche",
+    "voting",
+    "zero-knowledge",
+    "blockchain",
+    "privacy",
+    "zk-snarks"
+  ]
+}
